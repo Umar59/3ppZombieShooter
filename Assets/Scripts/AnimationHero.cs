@@ -50,6 +50,11 @@ public class AnimationHero : MonoBehaviour
                 anim.SetBool("isMeleeWeapon", true);
                 anim.SetBool("isPistol", false);
                 break;
+            case WeaponType.Rifle:
+                anim.SetBool("isGun", true);
+                anim.SetBool("isMeleeWeapon", false);
+                anim.SetBool("isPistol", false);
+                break;
         }
     }
     
@@ -71,6 +76,10 @@ public class AnimationHero : MonoBehaviour
                 anim.SetBool("isGun", state);
                 anim.SetBool("isMeleeWeapon", state);
                 anim.SetBool("isPistol", state);
+                break;
+            case WeaponType.Rifle:
+                gunAnimator.SetBool("isFireGun", state);
+                anim.SetBool("isFireGun", state);
                 break;
         }
     }

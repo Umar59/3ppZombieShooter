@@ -74,16 +74,18 @@
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Player\SmoothMouseLook.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxChanger.cs" />
      <Compile Include="Assets\FarlandSkies\Demo\Scripts\Skybox\SkyboxRotator.cs" />
-     <Compile Include="Assets\Scripts\AKCharacteristics.cs" />
      <Compile Include="Assets\Scripts\AnimationHero.cs" />
      <Compile Include="Assets\Scripts\Cube1.cs" />
      <Compile Include="Assets\Scripts\FireController.cs" />
      <Compile Include="Assets\Scripts\Joystick.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Shoots.cs" />
      <Compile Include="Assets\Scripts\ThridCameraPerson.cs" />
      <Compile Include="Assets\Scripts\UIController.cs" />
      <Compile Include="Assets\Scripts\WeapomType.cs" />
+     <Compile Include="Assets\Scripts\Weapon\AK.cs" />
+     <Compile Include="Assets\Scripts\Weapon\Gun.cs" />
+     <Compile Include="Assets\Scripts\Weapon\Pistol.cs" />
+     <Compile Include="Assets\Scripts\Weapon\Rifle.cs" />
      <Compile Include="Assets\Scripts\WeaponSwitch.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>E:/My/UnityProject/NotNameGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
