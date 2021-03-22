@@ -13,13 +13,13 @@ public class lampBlink : MonoBehaviour
 
 
     IEnumerator Blink()
-    {
+    { 
         while (true)
         {
-            light.intensity = 0.1f;
-
-            yield return new WaitForSeconds(0.1f);
+            
             light.intensity = 3.47f;
+            yield return new WaitForSeconds(0.1f);
+            light.intensity = 0.1f;
             yield return new WaitForSeconds((Random.Range(0f, blinkFrequency)));
         }
         

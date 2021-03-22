@@ -5,13 +5,17 @@ ScriptsOnlyBuild:
     - AnimationHero
     - FireController
     - Joystick
+    - NewBehaviourScript
     - Pistol
     - PlayerController
+    - Rifle
+    - Shoots
     - ThridCameraPerson
     - UIController
+    - UnityEngine.AI.NavMeshSurface
     - WeaponSwitch
+    - animate
     Unity.Rider.Editor.dll:
-    - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
@@ -74,50 +78,62 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11264}
+      Script: {instanceID: 11300}
     - Class: 114
-      Script: {instanceID: 11434}
+      Script: {instanceID: 11452}
     - Class: 114
-      Script: {instanceID: 11490}
+      Script: {instanceID: 11482}
     - Class: 114
-      Script: {instanceID: 11544}
+      Script: {instanceID: 11510}
     - Class: 114
-      Script: {instanceID: 11614}
+      Script: {instanceID: 11564}
     - Class: 114
-      Script: {instanceID: 11638}
+      Script: {instanceID: 11634}
     - Class: 114
-      Script: {instanceID: 11998}
+      Script: {instanceID: 11658}
     - Class: 114
-      Script: {instanceID: 12028}
+      Script: {instanceID: 11690}
     - Class: 114
-      Script: {instanceID: 12222}
+      Script: {instanceID: 12022}
     - Class: 114
-      Script: {instanceID: 12444}
+      Script: {instanceID: 12054}
     - Class: 114
-      Script: {instanceID: 12480}
+      Script: {instanceID: 12250}
     - Class: 114
-      Script: {instanceID: 12574}
+      Script: {instanceID: 12476}
     - Class: 114
-      Script: {instanceID: 12782}
+      Script: {instanceID: 12512}
     - Class: 114
-      Script: {instanceID: 13230}
+      Script: {instanceID: 12606}
     - Class: 114
-      Script: {instanceID: 13234}
+      Script: {instanceID: 12814}
     - Class: 114
-      Script: {instanceID: 13410}
+      Script: {instanceID: 12896}
     - Class: 114
-      Script: {instanceID: 13690}
+      Script: {instanceID: 13012}
+    - Class: 114
+      Script: {instanceID: 13268}
+    - Class: 114
+      Script: {instanceID: 13272}
+    - Class: 114
+      Script: {instanceID: 13448}
+    - Class: 114
+      Script: {instanceID: 13736}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
     - Class: 137
       Script: {instanceID: 0}
     - Class: 143
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -128,6 +144,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
@@ -198,6 +216,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: GroupTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c6e01bad45742bffeca3578a340e9fde
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Rifle
   - hash:
       serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
@@ -290,7 +314,7 @@ ScriptsOnlyBuild:
     className: CinemachineExternalCamera
   - hash:
       serializedVersion: 2
-      Hash: 1e5a15c8149f0f966d3d387b9b71440e
+      Hash: ae9743de70e37b81e7d5b1ac94cd9bde
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WeaponSwitch
@@ -300,6 +324,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineStoryboard
+  - hash:
+      serializedVersion: 2
+      Hash: 8d4458b476a9a4dd8df843a849fcfffa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshSurface
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -404,6 +434,12 @@ ScriptsOnlyBuild:
     className: Pistol
   - hash:
       serializedVersion: 2
+      Hash: 466b5cabe72c6f2ca0cf2d32fa814be8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AKCharacteristics
+  - hash:
+      serializedVersion: 2
       Hash: 5f170942ee57c7a568f5bcfc7521adea
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
@@ -506,6 +542,12 @@ ScriptsOnlyBuild:
     className: LookAtCamera
   - hash:
       serializedVersion: 2
+      Hash: 2b19be13f00df62e6d4d4f5539bcad51
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifier
+  - hash:
+      serializedVersion: 2
       Hash: 15882a52798c275361cd0a3ada984ec5
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -516,6 +558,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 7299a528424874bcf6b5736b5305ac37
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshModifierVolume
   - hash:
       serializedVersion: 2
       Hash: 6af99a33a27dd02a47b9ca4032f7b50d
@@ -534,6 +582,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachinePipeline
+  - hash:
+      serializedVersion: 2
+      Hash: 1e5b752e7ecfe3a875751fe602d23463
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Shoots
   - hash:
       serializedVersion: 2
       Hash: 5a53671008ad6f68b0d110f7c70d732d
@@ -680,6 +734,12 @@ ScriptsOnlyBuild:
     className: CinemachineMixingCamera
   - hash:
       serializedVersion: 2
+      Hash: a77987bbef464914c0a12909df106214
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NewBehaviourScript
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -728,6 +788,12 @@ ScriptsOnlyBuild:
     className: CinemachineTouchInputMapper
   - hash:
       serializedVersion: 2
+      Hash: e762b89a1e30605b72ce23fa780fcb40
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: lampBlink
+  - hash:
+      serializedVersion: 2
       Hash: df69d0b5057ca9ea660270e6660fc67c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -738,6 +804,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineVirtualCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 52311588f7f283fd2dbb89df0ea59566
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: animate
   - hash:
       serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
@@ -858,6 +930,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c8c672fee8a258266e51b55a210b8083
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityEngine.AI
+    className: NavMeshLink
   - hash:
       serializedVersion: 2
       Hash: 5e84370a36252d6aa37d6a7bd37710f7
@@ -1011,4 +1089,5 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: E:/game/ninja.apk
+  playerPath: "C:/Users/24050/OneDrive/\u0420\u0430\u0431\u043E\u0447\u0438\u0439
+    \u0441\u0442\u043E\u043B/hui.apk"
