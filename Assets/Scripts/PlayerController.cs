@@ -5,18 +5,17 @@ public class PlayerController : MonoBehaviour
 {
     public Joystick joystick;
     public CharacterController controller;
-    public Gun gun;
 
     private Animator _animator;
 
+    private bool _pistol;
+    private bool _weapon;
 
     [SerializeField] private WeaponSwitch _weaponSwitch;
 
 
     public float speed;
     public float gravity;
-
-    public bool statee;
 
 
     Vector3 moveDirection;
@@ -26,42 +25,24 @@ public class PlayerController : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
     }
 
-    void FixedUpdate()
-    {
-        Move();
-        Shoot(statee);
-        
-    }
-
-    private void Move()
+    void Update()
     {
         Vector2 direction = joystick.direction;
 
-
+        
+        
         if (controller.isGrounded)
         {
             moveDirection = new Vector3(direction.x, 0, direction.y);
 
-
-            Quaternion lookRotation =
-                moveDirection != Vector3.zero ? Quaternion.LookRotation(moveDirection) : transform.rotation;
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-
-
+            Quaternion targetRotation = moveDirection != Vector3.zero
+                ? Quaternion.LookRotation(moveDirection)
+                : transform.rotation;
+            transform.rotation = targetRotation;
             moveDirection = moveDirection * speed;
         }
 
         moveDirection.y = moveDirection.y - (gravity * Time.deltaTime);
         controller.Move(moveDirection * Time.deltaTime);
-    }
-
-    public void Shoot(bool state)
-    {
-        Debug.Log(gun);
-        if (state)
-        {
-            gun.Shoot();
-        }
-        
     }
 }
