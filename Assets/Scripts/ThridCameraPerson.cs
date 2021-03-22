@@ -19,9 +19,7 @@ public class ThridCameraPerson : MonoBehaviour
 
         _personPositionY = person.transform.position.y;
 
-        gameObject.transform.position = new Vector3(_personPositionX , _personPositionY + 6.54f,
-            _personPositionZ -4.54f);
-
-       //gameObject.transform.rotation = person.transform.rotation;
+        gameObject.transform.position = new Vector3(_personPositionX + 3.312369f, _personPositionY + 4.662919f,
+            _personPositionZ - 1.460353f);
     }
 }

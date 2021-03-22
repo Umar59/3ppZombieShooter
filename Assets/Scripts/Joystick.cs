@@ -7,58 +7,59 @@ public class Joystick : MonoBehaviour
     public RectTransform knob;
     public float range;
     public bool fixedJoystick;
-    public Vector2 startPos;
-   
 
     [HideInInspector] public Vector2 direction;
-    
 
     Vector2 start;
 
-    // void Start()
-    // {
-    //     ShowHide(false);
-    // }
+    void Start()
+    {
+        ShowHide(false);
+    }
 
     void Update()
     {
 
-        // Track a single touch as a direction control.
-        if (Input.touchCount > 0 && Input.GetTouch(0).position.x < Screen.width/2)
+        Vector2 pos = Input.mousePosition;
+        if (pos.x < Screen.width / 2 && Input.touchCount <2)
         {
-            Touch touch = Input.GetTouch(0);
-
-            // Handle finger movements based on touch phase.
-            switch (touch.phase)
+            if (Input.GetMouseButtonDown(0))
             {
-                // Record initial touch position.
-                case TouchPhase.Began:
-                    startPos = touch.position;
-                    center.position = touch.position;
-                    
-                    break;
+                ShowHide(true);
+                start = pos;
 
-                // Determine direction by comparing the current touch position with the initial one.
-                case TouchPhase.Moved:
-                    direction = touch.position - startPos;
-                    break;
-
-                // Report that a direction has been chosen when the finger is lifted.
-                case TouchPhase.Ended:
-                    
-                    direction = Vector2.zero;
-                    // center.gameObject.SetActive(false);
-                    // knob.gameObject.SetActive(false);
-                    break;
+                knob.position = pos;
+                center.position = pos;
             }
+            else if (Input.GetMouseButton(0))
+            {
+                
+                knob.position = pos;
+                knob.position = center.position +
+                                Vector3.ClampMagnitude(knob.position - center.position, center.sizeDelta.x * range);
 
-            knob.position = touch.position;
+                if (knob.position != Input.mousePosition && !fixedJoystick)
+                {
+                    Vector3 outsideBoundsVector = Input.mousePosition - knob.position;
+                    center.position += outsideBoundsVector;
+                }
+
+                direction = (knob.position - center.position).normalized;
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                ShowHide(false);
+                direction = Vector2.zero;
+            }
+            
+            
         }
-        
-        
-        direction.Normalize();
-
+       
     }
 
-    
+    void ShowHide(bool state)
+    {
+        center.gameObject.SetActive(state);
+        knob.gameObject.SetActive(state);
+    }
 }

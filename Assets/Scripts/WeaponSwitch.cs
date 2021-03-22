@@ -1,30 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponSwitch : MonoBehaviour
 {
-    public WeaponType currentWeapon = 0;
-    public PlayerController _playerController;
-    public AK ak;
-    public Pistol pistol;
-    public Rifle rifle;
-        
-
-    private List<Gun> _guns = new List<Gun>();
-    
-
-
-    private void Start()
-    {
-        
-        _guns.Add(pistol);
-        _guns.Add(ak);
-        _guns.Add(rifle);
-        _guns.Add(null);
-        _playerController.gun = pistol;
-    }
+    public GunType currentWeapon = 0;
 
     private void Update()
     {
@@ -48,25 +26,26 @@ public class WeaponSwitch : MonoBehaviour
         }
     }
     
+    
+
+    public enum GunType
+    {
+        Pistol,
+        Gun,
+        MeleeWeapon
+    }
+
     public void RefreshCurrentWeapon()
     {
-        
-        if ((int)currentWeapon == 3)
+        Debug.Log("Action");
+        int i = (int) currentWeapon;
+        if (i <= 3)
         {
-            currentWeapon = 0;
-            _playerController.gun = _guns[(int)currentWeapon];
+            currentWeapon++;
         }
         else
         {
-            currentWeapon++;
-            _playerController.gun = _guns[(int)currentWeapon];
+            currentWeapon = 0;
         }
-       
-        
-        
-        
-       
     }
-    
-    
 }

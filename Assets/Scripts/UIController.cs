@@ -1,28 +1,29 @@
 ﻿
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIController : MonoBehaviour, IPointerDownHandler
+public class UIController : MonoBehaviour
 {
-    public WeaponSwitch _weaponSwitch;
+    [SerializeField]
+    public WeaponSwitch weaponSwitch;
     
-    
-    
-    
-    
-    public void OnPointerDown(PointerEventData eventData)
+    public void RefreshCurrentWeapon()
     {
-        _weaponSwitch.RefreshCurrentWeapon();
+        if ((int)weaponSwitch.currentWeapon == 2)
+        {
+            weaponSwitch.currentWeapon = 0;
+        }
+        else
+        {
+             weaponSwitch.currentWeapon++;
+        }
+       
+        
+        
+        
+        Debug.Log(weaponSwitch.currentWeapon);
     }
 
-   
 
-   
     
-    
-    
-    
-
-   
 }
