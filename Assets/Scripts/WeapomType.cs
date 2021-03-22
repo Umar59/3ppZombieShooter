@@ -2,5 +2,6 @@
 {
     Pistol,
     Gun,
+    Rifle,
     MeleeWeapon
 }

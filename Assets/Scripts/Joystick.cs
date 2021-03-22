@@ -7,59 +7,58 @@ public class Joystick : MonoBehaviour
     public RectTransform knob;
     public float range;
     public bool fixedJoystick;
+    public Vector2 startPos;
+   
 
     [HideInInspector] public Vector2 direction;
+    
 
     Vector2 start;
 
-    void Start()
-    {
-        ShowHide(false);
-    }
+    // void Start()
+    // {
+    //     ShowHide(false);
+    // }
 
     void Update()
     {
 
-        Vector2 pos = Input.mousePosition;
-        if (pos.x < Screen.width / 2 && Input.touchCount <2)
+        // Track a single touch as a direction control.
+        if (Input.touchCount > 0 && Input.GetTouch(0).position.x < Screen.width/2)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                ShowHide(true);
-                start = pos;
+            Touch touch = Input.GetTouch(0);
 
-                knob.position = pos;
-                center.position = pos;
-            }
-            else if (Input.GetMouseButton(0))
+            // Handle finger movements based on touch phase.
+            switch (touch.phase)
             {
-                
-                knob.position = pos;
-                knob.position = center.position +
-                                Vector3.ClampMagnitude(knob.position - center.position, center.sizeDelta.x * range);
+                // Record initial touch position.
+                case TouchPhase.Began:
+                    startPos = touch.position;
+                    center.position = touch.position;
+                    
+                    break;
 
-                if (knob.position != Input.mousePosition && !fixedJoystick)
-                {
-                    Vector3 outsideBoundsVector = Input.mousePosition - knob.position;
-                    center.position += outsideBoundsVector;
-                }
+                // Determine direction by comparing the current touch position with the initial one.
+                case TouchPhase.Moved:
+                    direction = touch.position - startPos;
+                    break;
 
-                direction = (knob.position - center.position).normalized;
+                // Report that a direction has been chosen when the finger is lifted.
+                case TouchPhase.Ended:
+                    
+                    direction = Vector2.zero;
+                    // center.gameObject.SetActive(false);
+                    // knob.gameObject.SetActive(false);
+                    break;
             }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                ShowHide(false);
-                direction = Vector2.zero;
-            }
-            
-            
+
+            knob.position = touch.position;
         }
-       
+        
+        
+        direction.Normalize();
+
     }
 
-    void ShowHide(bool state)
-    {
-        center.gameObject.SetActive(state);
-        knob.gameObject.SetActive(state);
-    }
+    
 }
