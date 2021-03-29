@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,14 +7,11 @@ public class FireController : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 {
     public AnimationHero animationHero;
     public PlayerController playerController;
-    
-    
+  
     public void OnPointerDown(PointerEventData eventData)
     {
-        
         animationHero.Fire(true);
         playerController.statee = true;
-        
 
     }
 
@@ -21,6 +19,6 @@ public class FireController : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     {
         playerController.statee = false;
         animationHero.Fire(false);
-        
+
     }
 }

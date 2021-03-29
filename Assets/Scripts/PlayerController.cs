@@ -1,13 +1,23 @@
-﻿using UnityEngine;
-
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public Joystick joystick;
     public CharacterController controller;
     public Gun gun;
-
+    public ParticleSystem muzzleFlash;
     private Animator _animator;
+
+
+   
+    public GameObject line;
+    public LineRenderer laserLineRenderer;
+    public float LaserWidth = 0.05f;
+    private float Maxlength = 30f;
+    public Transform transformForRay;
+
 
 
     [SerializeField] private WeaponSwitch _weaponSwitch;
@@ -15,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public float gravity;
-
+    public float firerate = 5f;
+    private float nextTimeToFire = 0f;
     public bool statee;
 
 
@@ -24,13 +35,33 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _animator = gameObject.GetComponent<Animator>();
+        
+        //for aim laser
+
+        line = GameObject.Find("Line");
+        laserLineRenderer = line.GetComponent<LineRenderer>();
+        Vector3[] initLaserPositions = new Vector3[2] { Vector3.zero, Vector3.zero };
+        laserLineRenderer.SetPositions(initLaserPositions);
+        laserLineRenderer.SetWidth(LaserWidth, LaserWidth);
     }
 
     void FixedUpdate()
     {
         Move();
-        Shoot(statee);
-        
+        if (!statee)
+        {
+            muzzleFlash.Play(); 
+        }
+
+        if (Time.time >= nextTimeToFire)
+        {
+
+            Debug.Log("HUi");
+            nextTimeToFire = Time.time + 1f / firerate;
+            Shoot(statee);
+        }
+
+        Aim();
     }
 
     private void Move()
@@ -61,7 +92,24 @@ public class PlayerController : MonoBehaviour
         if (state)
         {
             gun.Shoot();
+
         }
         
+    }
+    public void Aim()
+    {
+        Ray ray = new Ray(transformForRay.position, transformForRay.forward);
+        Vector3 endPosition = transformForRay.position + (Maxlength * transformForRay.forward);
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            endPosition = hit.point;
+
+        }
+
+        laserLineRenderer.SetPosition(0, transformForRay.position);
+        laserLineRenderer.SetPosition(1, endPosition);
     }
 }

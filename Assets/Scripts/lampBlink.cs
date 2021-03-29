@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class lampBlink : MonoBehaviour
 {
-    public Light light;
+    public Light lights;
     public float blinkFrequency = 3f;
     void Start()
     {
@@ -17,9 +17,9 @@ public class lampBlink : MonoBehaviour
         while (true)
         {
             
-            light.intensity = 3.47f;
+            lights.intensity = 3.47f;
             yield return new WaitForSeconds(0.1f);
-            light.intensity = 0.1f;
+            lights.intensity = 0.1f;
             yield return new WaitForSeconds((Random.Range(0f, blinkFrequency)));
         }
         

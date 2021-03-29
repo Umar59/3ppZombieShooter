@@ -23,7 +23,7 @@ public class Pistol : MonoBehaviour, Gun
                  if (hit.collider.gameObject.name == "enemy")
                  {
                      
-                     hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
+                   //  hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
                  }
              }
             
