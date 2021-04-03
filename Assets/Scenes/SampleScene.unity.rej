@@ -1,0 +1,10 @@
+diff a/Assets/Scenes/SampleScene.unity b/Assets/Scenes/SampleScene.unity	(rejected hunks)
+@@ -4191,7 +4191,7 @@
+     - target: {fileID: -4216859302048453862, guid: 728f6ad2b27850b428c6447c047db511,
+         type: 3}
+       propertyPath: m_LocalPosition.x
+-      value: -4.263
++      value: -5.669
+       objectReference: {fileID: 0}
+     - target: {fileID: -4216859302048453862, guid: 728f6ad2b27850b428c6447c047db511,
+         type: 3}
